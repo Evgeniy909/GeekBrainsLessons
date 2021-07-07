@@ -29,10 +29,11 @@
             android:text="Enter yours name" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonCalc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Нажми меня" />
+            android:text="Калькулятор"
+            android:onClick="ButtonClick_Calc"/>/>
 
         <Button
             android:id="@+id/switchLayout"

@@ -22,6 +22,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
     }
 
+    public void ButtonClick_Calc(View view) {
+        Intent intent = new Intent(MainActivity.this, ActivityCalc.class);
+        startActivity(intent);
+    }
+
 //Не удаётся
 /*
 button.setOnClickListener(v -> {
