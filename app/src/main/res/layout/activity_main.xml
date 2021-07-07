@@ -11,7 +11,8 @@
         android:layout_height="638dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textView3"
@@ -32,6 +33,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Нажми меня" />
+
+        <Button
+            android:id="@+id/switchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity2"
+            android:onClick="ButtonClick_switch1"/>
 
         <Switch
             android:id="@+id/switch1"
