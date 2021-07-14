@@ -12,14 +12,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-    }
 
-    //Button button= findViewById(R.id.switchLayout);
+        Button button = findViewById(R.id.switchLayout);
 
-    public void ButtonClick_switch1(View view) {
+        button.setOnClickListener(v ->
+        {
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
             startActivity(intent);
+        });
+    }
+
+    public void ButtonClick_switch1(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        startActivity(intent);
     }
 
     public void ButtonClick_Calc(View view) {
@@ -28,11 +35,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //Не удаётся
-/*
-button.setOnClickListener(v -> {
-        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-        startActivity(intent);
-    });
-}
-*/
+
+
 }
