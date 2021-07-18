@@ -1,157 +1,126 @@
 package com.example.geekbrainslessons;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import java.util.HashMap;
 
 public class ActivityCalc extends AppCompatActivity {
 
-    TextView viewResult;
-    private View view;
+    private final int[] numbersButtonIds;
+
+    {
+        numbersButtonIds = new int[]{
+                R.id.buttonZero,
+                R.id.buttonOne,
+                R.id.buttonTwo,
+                R.id.buttonThree,
+                R.id.buttonFour,
+                R.id.buttonFive,
+                R.id.buttonSix,
+                R.id.buttonSeven,
+                R.id.buttonEight,
+                R.id.buttonNine
+        };
+    }
+
+    private final int[] operationsButtonIds;
+
+    {
+        operationsButtonIds = new int[]{
+                R.id.buttonDivision,
+                R.id.buttonMultiplication,
+                R.id.buttonSubtraction,
+                R.id.buttonAddition,
+                R.id.buttonEqually,
+                R.id.buttonClear
+        };
+    }
+
+    Calculation calc = new Calculation();
+
+    private TextView viewResult;
+
+    HashMap<Integer, String> numbersHashMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_calc);
+
+        Button numberButton;
+
+        int i = 0;
+
+        for (int id : numbersButtonIds) {
+            numberButton = (Button) findViewById(id);
+            numberButton.setOnClickListener(clickNumberBut);
+            numbersHashMap.put(id,"" + i++);
+        }
+
+        for (int id : operationsButtonIds) {
+            numberButton = (Button) findViewById(id);
+            numberButton.setOnClickListener(clickOperationBut);
+        }
 
         viewResult = (TextView) findViewById(R.id.textViewResult);
     }
 
-    public static char lastOtherKey;
-    public static String member = "";
-    public static String lefVal = "";
-    char otherKey = 'a';
-
-    public void ButtonClick(View view) {
-
-        this.view = view;
-
-        if (lastOtherKey == '=') {
-            viewResult.setText("");
-            otherKey = 'a';
-            member = "";
+    View.OnClickListener clickNumberBut = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Button btn = (Button) v;
+            calc.setMember(numbersHashMap.get(btn.getId()));
+            viewResult.setText(calc.getMember());
         }
+    };
 
-        int number;
+    View.OnClickListener clickOperationBut = new View.OnClickListener() {
+        @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
+        @Override
+        public void onClick(View v) {
 
-        switch (view.getId()) {
-            case R.id.buttonZero:
-                number = 0;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonOne:
-                number = 1;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonTwo:
-                number = 2;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonThree:
-                number = 3;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonFour:
-                number = 4;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonFive:
-                number = 5;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonSix:
-                number = 6;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonSeven:
-                number = 7;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonEight:
-                number = 8;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonNine:
-                number = 9;
-                viewResult.setText(viewResult.getText() + "" + number + "");
-                member = member + number;
-                break;
-            case R.id.buttonDivision:
-                otherKey = '/';
-                viewResult.setText(viewResult.getText() + "/");
-                lefVal = member;
-                member = "";
-                break;
-            case R.id.buttonMultiplication:
-                otherKey = '*';
-                viewResult.setText(viewResult.getText() + "*");
-                lefVal = member;
-                member = "";
-                break;
-            case R.id.buttonSubtraction:
-                otherKey = '-';
-                viewResult.setText(viewResult.getText() + "-");
-                lefVal = member;
-                member = "";
-                break;
-            case R.id.buttonAddition:
-                otherKey = '+';
-                viewResult.setText(viewResult.getText() + "+");
-                lefVal = member;
-                member = "";
-                break;
-            case R.id.buttonEqually:
-                otherKey = '=';
-                break;
-            case R.id.buttonClear:
-                otherKey = 'c';
-                break;
-        }
-
-        if (otherKey == 'c') {
-            otherKey = 'a';
-            viewResult.setText("");
-            member = "";
-            lefVal = "";
-
-        } else if (otherKey == '=') {
-
-            number = 0;
-
-            int currentVal = Integer.parseInt(member);
-            int memVal = Integer.parseInt(lefVal);
-            int result = 0;
-
-            if (lastOtherKey == '/') {
-
-                if (currentVal == 0) {
-                    viewResult.setText("Нельзя делить на ноль!");
-                    return;
-                } else {
-                    result =  memVal / currentVal;
-                }
-
-            } else if (lastOtherKey == '*') {
-                result = memVal * currentVal;
-            } else if (lastOtherKey == '-') {
-                result = memVal - currentVal;
-            } else if (lastOtherKey == '+') {
-                result = memVal + currentVal;
+            if (calc.getLastOperationKey() == '=') {
+                viewResult.setText("");
+               calc.setMember("");
             }
-            viewResult.setText("" + result + "");
-        }
 
-        lastOtherKey = otherKey;
-    }
+            switch (v.getId()) {
+                case R.id.buttonDivision:
+                    viewResult.setText(calc.getMember() + "/");
+                    calc.setLefVal();
+                    calc.setLastOperationKey('/');
+                    break;
+                case R.id.buttonMultiplication:
+                    viewResult.setText(calc.getMember() + "*");
+                    calc.setLefVal();
+                    calc.setLastOperationKey('*');
+                    break;
+                case R.id.buttonSubtraction:
+                    viewResult.setText(calc.getMember() + "-");
+                    calc.setLefVal();
+                    calc.setLastOperationKey('-');
+                    break;
+                case R.id.buttonAddition:
+                    viewResult.setText(calc.getMember() + "+");
+                    calc.setLefVal();
+                    calc.setLastOperationKey('+');
+                    break;
+                case R.id.buttonEqually:
+                    viewResult.setText(calc.getResult());
+                    calc.setLastOperationKey('=');
+                    calc.setMember("");
+                    break;
+                case R.id.buttonClear:
+                    viewResult.setText("");
+                    calc.setLastOperationKey('c');
+                    calc.setMember("");
+                    break;
+            }
+        }
+    };
 }
