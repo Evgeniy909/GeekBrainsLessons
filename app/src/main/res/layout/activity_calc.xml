@@ -10,20 +10,23 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/teal_700"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="ExtraText,MissingConstraints">
 
         <TextView
             android:id="@+id/textViewResult"
-            android:text=""
+            style="@style/MyCoolStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffca"
-            android:layout_weight="3"
+            android:layout_height="196dp"
+            android:layout_weight="18"
+            android:background="#40F3DE"
             android:gravity="center"
             android:inputType="number"
-            android:textSize="30dp" />
+            android:lines="2"
+            android:text=""
+            android:textSize="30sp" />
 
         <TableRow
             android:layout_width="match_parent"
@@ -31,52 +34,52 @@
             android:layout_weight="1"
             >
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonOne"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="1"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_1"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonTwo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="2"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_2"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonThree"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="3"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_3"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDivision"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="/"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_div"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
         </TableRow>>
 
@@ -85,52 +88,52 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonFour"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="4"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_4"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonFive"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="5"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_5"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSix"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="6"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_6"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonMultiplication"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="*"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/mul"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
         </TableRow>>
 
@@ -139,52 +142,52 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSeven"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="7"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_7"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonEight"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="8"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_8"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonNine"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="9"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_9"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSubtraction"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="-"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/sub"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
         </TableRow>>
@@ -194,54 +197,54 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonZero"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="0"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/_0"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonAddition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="+"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/add"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonEqually"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="="
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/eq"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
-            <Button
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonClear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="1"
                 android:layout_weight="1"
-                android:text="C"
-                android:textSize="70dp"
-                app:cornerRadius="90dp"
-                android:onClick="ButtonClick"
+                android:text="@string/clear"
+                android:textSize="@dimen/btnTextSize"
+                app:cornerRadius="@dimen/btnRadius"
+                android:layout_margin="@dimen/btnMargin"
                 />
         </TableRow>>
-
 
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
